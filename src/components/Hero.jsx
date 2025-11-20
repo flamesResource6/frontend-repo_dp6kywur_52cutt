@@ -136,57 +136,22 @@ export default function Hero() {
                 </motion.div>
               </div>
 
-              {/* Visual block with Spline and depth */}
+              {/* 3D SensAI model without the square panel */}
               <div className="relative" style={{ transform: 'translateZ(40px)' }}>
                 <motion.div
-                  className="group relative h-[420px] sm:h-[520px] lg:h-[560px] rounded-3xl border border-white/10 [transform-style:preserve-3d] transition-transform duration-300"
+                  className="relative h-[420px] sm:h-[520px] lg:h-[560px] [transform-style:preserve-3d]"
                 >
-                  {/* Depth glow */}
-                  <motion.div
-                    aria-hidden
-                    className="absolute -inset-2 rounded-[2rem] bg-gradient-to-br from-indigo-500/25 via-fuchsia-500/15 to-amber-400/20 blur-2xl"
-                    style={{ transform: 'translateZ(0px)' }}
-                  />
-
-                  {/* Back glass panel */}
-                  <div className="absolute inset-0 rounded-3xl bg-white/[0.04] backdrop-blur-md border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.35)]" style={{ transform: 'translateZ(0px)' }} />
-
-                  {/* Spline scene */}
-                  <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ transform: 'translateZ(30px)' }}>
+                  {/* Free-floating Spline scene (no panel, no border) */}
+                  <div className="absolute inset-0 overflow-visible" style={{ transform: 'translateZ(40px)' }}>
                     <Spline scene="https://prod.spline.design/4cHQr84zOGAHOehh/scene.splinecode" style={{ width: '100%', height: '100%' }} />
                   </div>
 
-                  {/* Foreground veil */}
-                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" style={{ transform: 'translateZ(80px)' }} />
-
-                  {/* Floating chips on visual */}
+                  {/* Gentle spotlight to help model pop without showing a square */}
                   <motion.div
-                    className="absolute left-6 top-6 rounded-xl border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white/80 shadow"
-                    style={{ transform: 'translateZ(90px)' }}
-                    initial={{ opacity: 0, y: -10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                  >
-                    Auto‑draft replies
-                  </motion.div>
-                  <motion.div
-                    className="absolute right-6 top-10 rounded-xl border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white/80 shadow"
-                    style={{ transform: 'translateZ(110px)' }}
-                    initial={{ opacity: 0, y: -10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35, duration: 0.6 }}
-                  >
-                    Triage & routing
-                  </motion.div>
-                  <motion.div
-                    className="absolute left-8 bottom-10 rounded-xl border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white/80 shadow"
-                    style={{ transform: 'translateZ(130px)' }}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                  >
-                    Human‑tone controls
-                  </motion.div>
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-24 rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.25),transparent_60%)] blur-[80px]"
+                    style={{ transform: 'translateZ(0px)' }}
+                  />
                 </motion.div>
               </div>
             </div>
